@@ -1,0 +1,15 @@
+torch>=2.1
+torchvision>=0.16
+opencv-python>=4.8.0
+pillow>=10.0.0
+fastapi>=0.104.0
+uvicorn>=0.24.0
+numpy>=1.24.0
+scikit-image>=0.21.0
+matplotlib>=3.8.0
+python-multipart>=0.0.6
+httpx2>=0.1.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+zhconv>=1.4.3
+python-Levenshtein>=0.23.0

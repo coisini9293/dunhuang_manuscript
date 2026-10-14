@@ -1,0 +1,50 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+**/server.env
+*.pem
+*.key
+*.p12
+*.crt
+
+# Python and runtime artifacts
+__pycache__/
+*.py[cod]
+*.so
+*.log
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+
+# Project data, generated output, and local environments
+DATA/
+MODELS/
+OUTPUTS/
+RUNTIME/envs/
+RUNTIME/miniconda/
+RUNTIME/logs/
+**/tmp_img/
+**/results/
+
+# Model weights and checkpoints
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.h5
+*.pkl
+*.joblib
+
+# Manuscript scans and generated images
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.webp
+*.pdf

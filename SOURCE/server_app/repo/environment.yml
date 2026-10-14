@@ -1,0 +1,26 @@
+name: gurou-rejoin
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pytorch>=2.1
+  - torchvision
+  - opencv
+  - numpy
+  - scikit-image
+  - matplotlib
+  - jpeg
+  - libpng
+  - pip:
+      - fastapi>=0.104.0
+      - uvicorn>=0.24.0
+      - pillow>=10.0.0
+      - matplotlib>=3.8.0
+      - python-multipart>=0.0.6
+      - diffusers==0.22.0
+      - huggingface_hub>=0.19.0,<=0.25.2
+      - transformers==4.33.1
+      - accelerate==0.23.0

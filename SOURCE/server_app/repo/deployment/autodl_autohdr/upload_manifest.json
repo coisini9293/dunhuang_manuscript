@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "AUTODL_PACKAGE_READY_OFFICIAL_MODELS_MISSING",
+  "upload": [
+    {
+      "path": "third_party/AutoHDR/",
+      "reason": "Official upstream source at fixed commit d92b223b3d9274b03ca6f1e4c62b09253f378c98",
+      "contains_large_files": true,
+      "tracked_by_git": false
+    },
+    {
+      "path": "deployment/autodl_autohdr/",
+      "reason": "Deployment instructions, checks and transfer manifests",
+      "contains_large_files": false,
+      "tracked_by_git": true
+    },
+    {
+      "path": "data/real_cases/transfer/",
+      "reason": "Only explicitly selected real-case inputs",
+      "contains_large_files": true,
+      "tracked_by_git": false
+    }
+  ],
+  "do_not_upload": [
+    ".venv/",
+    "cache/",
+    "logs/",
+    "outputs/",
+    "reports/",
+    "artifacts/rag_v2/",
+    "artifacts/rag_v2_deploy/",
+    "data/cbeta_v2/",
+    "data/raw/",
+    ".env",
+    "cookies",
+    "api_keys"
+  ],
+  "required_external_models": [
+    "AutoHDR-Qwen2-1.5B or AutoHDR-Qwen2-7B",
+    "Damage Localization Model",
+    "OCR Model",
+    "DiffHDR"
+  ],
+  "official_inference_executed_locally": false,
+  "autodl_connected": false
+}

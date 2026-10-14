@@ -1,0 +1,25 @@
+{
+  "fixture_type": "synthetic_contract_fixture_not_real_autohdr",
+  "real_human_ground_truth": false,
+  "case_id": "bf873921-9ed0-4a73-9d3e-fc9047ea5e83",
+  "region_id": "contract-region-1784885981-38728409",
+  "candidate_text": "眾寶雜華",
+  "candidate_id": "34e93f70ab6a4a6da44906c2362db3e5:1",
+  "citation_hash": "730f1a981046c906fbf7ac676afa432b04ffb9ed2e46cbfb321f7397cbf3bdaa",
+  "unconfirmed_allow_restore": false,
+  "accept_allow_restore": true,
+  "manual_edit_allow_restore": true,
+  "reject_allow_restore": false,
+  "abstain_allow_restore": false,
+  "forged_manual_confirmed_status": 422,
+  "missing_manual_note_status": 422,
+  "stale_bundle_status": 409,
+  "repeat_idempotent": true,
+  "no_gpu_restore_status": 503,
+  "final_plan_sha256": "1f30368864e70283fb0f813586b727d57b0de0553cf215a1c0a2d3c0a73c715c",
+  "status": [
+    "SERVER_HUMAN_GATE_CONTRACT_PASS",
+    "SERVER_REPAIR_PLAN_CONTRACT_PASS",
+    "NO_GPU_RESTORE_GUARD_PASS"
+  ]
+}

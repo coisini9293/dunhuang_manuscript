@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "policy": "CONVEX_HULL_MINUS_DILATED_SURVIVING_STITCH_MASK",
+  "source_stitch_mask": "/path/to/dunhuang-autohdr/STITCHING/canonical_outputs/stitch_mask.png",
+  "source_stitch_mask_sha256": "d2ee8db24fe52f6ed63b4cd395b0338826e6eb6e09bf7f5a7e6e9237db48457c",
+  "target_rectangle": [
+    15,
+    65,
+    1994,
+    1483
+  ],
+  "dimensions": [
+    2007,
+    1522
+  ],
+  "surviving_fragment_pixels": 2541935,
+  "protected_pixels": 2558022,
+  "missing_between_fragments_pixels": 166018,
+  "protected_overlap_pixels": 0,
+  "missing_mask_sha256": "7e07adf8116fe07cef0a99c7f0cf3a5fb52f402498d09926357b482f2a1a5c70",
+  "protected_mask_sha256": "802c188363a05e742b6600e4d602366c1157ba53317de33a60aa176a63fae7b1",
+  "scope": "INDEPENDENT_STITCH_TO_RESTORATION_E2E_NOT_A_FORMAL_THREE_CASE_RESULT"
+}

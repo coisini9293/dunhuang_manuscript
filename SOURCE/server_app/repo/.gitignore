@@ -1,0 +1,79 @@
+# API Keys & 环境变量
+.env
+.env.local
+.env.*.local
+# 业务空间/API Key 导出文件（含活密钥，严禁入库/打包）
+*apiKey*.csv
+默认业务空间*.csv
+*业务空间*.csv
+
+# LLM 缓存（可能含请求内容）
+**/llm_cache/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 输出临时文件
+outputs/test_render/
+outputs/mvp/diffhdr_work/
+
+# 第三方依赖（vendored，体积大，来源见 THIRD_PARTY_MANIFEST.json）
+third_party/
+
+# 模型权重（太大，不提交）
+checkpoints/**/*.pth
+checkpoints/**/*.pt
+checkpoints/**/*.safetensors
+checkpoints/**/*.bin
+checkpoints/diffhdr/unet/diffusion_pytorch_model.safetensors
+
+# 原始数据（整体为外部数据集，体积大，不入仓库/不打包）
+data/raw/
+# 历史冗余归档目录（已扁平化迁移，禁止重新入库）
+归档/
+
+# 工作目录（agent 元数据，不提交）
+.workbuddy/
+
+# 交付ZIP（构建产物，不提交）
+gurou_clean_codex_handoff.zip
+*.handoff.zip
+
+# RAG V2 local-only corpora, indexes, models, caches, logs, and deploy assets
+data/cbeta_v2/
+artifacts/rag_v2/
+artifacts/rag_v2_deploy/
+cache/rag_v2/
+models/embeddings/
+outputs/rag_v2/
+reports/rag_v2/logs/
+
+# Public manuscript source images are reproducible external assets.  Keep their
+# provenance/checksums in Git, but never commit downloaded binaries or partials.
+data/real_cases/incoming/**/*.[jJ][pP][gG]
+data/real_cases/incoming/**/*.[jJ][pP][eE][gG]
+data/real_cases/incoming/**/*.[pP][nN][gG]
+data/real_cases/incoming/**/*.[tT][iI][fF]
+data/real_cases/incoming/**/*.[tT][iI][fF][fF]
+data/real_cases/incoming/**/*.[jJ][pP]2
+data/real_cases/incoming/**/*.[wW][eE][bB][pP]
+data/real_cases/incoming/**/*.[pP][dD][fF]
+data/real_cases/incoming/**/*.part

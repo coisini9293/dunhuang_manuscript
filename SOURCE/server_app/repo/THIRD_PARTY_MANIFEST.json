@@ -1,0 +1,38 @@
+{
+  "generated": "2026-07-22",
+  "note": "Vendored third-party repositories. Their nested .git directories were removed during Phase 5 cleanup (they are not submodules and must not be committed). Origins/branches are recorded here for provenance and re-cloning.",
+  "repos": [
+    {
+      "name": "AutoHDR",
+      "path": "third_party/AutoHDR",
+      "origin": "https://github.com/SCUT-DLVCLab/AutoHDR.git",
+      "branch": "main",
+      "license_note": "Upstream LICENSE lives in third_party/AutoHDR. Honor its terms; this repo is vendored, not authored here."
+    },
+    {
+      "name": "HDR",
+      "path": "third_party/HDR",
+      "origin": "https://github.com/yeungchenwa/HDR.git",
+      "branch": "main",
+      "license_note": "Upstream LICENSE lives in third_party/HDR. Honor its terms; this repo is vendored, not authored here."
+    }
+  ],
+  "external_runtime_integrations": [
+    {
+      "name": "Official AutoHDR",
+      "repository": "https://github.com/SCUT-DLVCLab/AutoHDR.git",
+      "fixed_commit": "d92b223b3d9274b03ca6f1e4c62b09253f378c98",
+      "license": "CC BY-NC-ND 4.0 for non-commercial research, as stated in the upstream README",
+      "reused_files_or_algorithms": [
+        "Public damage/OCR model wrappers",
+        "Reading-order utility",
+        "Official character renderer",
+        "Official DiffHDR pipeline builder and UNet runtime"
+      ],
+      "project_modifications": "None to Official source or weights. A separate external orchestration, validation, audit, and safe-compositing package imports the pinned checkout while resolving relative weights and OCR executables from the isolated runtime layout.",
+      "runtime_path": "adapters/autohdr_official",
+      "enters_main_runtime": false,
+      "activation_condition": "Only after GPU recheck and a validated server-generated human repair plan"
+    }
+  ]
+}

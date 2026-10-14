@@ -1,0 +1,10 @@
+# Python 3.12.x; Linux x86_64; direct runtime dependencies only.
+fastapi==0.139.2
+uvicorn==0.51.0
+numpy==2.4.6
+python-Levenshtein==0.27.3
+Levenshtein==0.27.3
+zhconv==1.4.3
+pillow==12.3.0
+python-multipart==0.0.32
+pydantic==2.13.4

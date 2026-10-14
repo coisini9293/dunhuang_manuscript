@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "provenance": {
+    "name": "Dunhuang OCR conservative confusion map",
+    "basis": "Project T0278 confusion groups plus high-frequency glyph-shape confusions",
+    "review_policy": "Single-character substitution only; never used as restored text"
+  },
+  "groups": [
+    ["未", "末"],
+    ["己", "已", "巳"],
+    ["人", "入"],
+    ["土", "士"],
+    ["口", "日", "曰"],
+    ["目", "自"],
+    ["一", "二"],
+    ["佛", "彿"],
+    ["眾", "衆", "众"],
+    ["華", "花", "华"]
+  ]
+}
