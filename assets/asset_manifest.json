@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-29",
+  "assets": [
+    {"path":"generated/warm-conservation-desk-v1.png","class":"generated_atmosphere","sha256":"71b1292141b09e93b09eb49d4f62bc39e201d87f1e3f4c7f0955bcbdebeb6eb3","role":"hero_environment","evidence":false},
+    {"path":"generated/cave-library-conservation-desk.png","class":"generated_instrument_environment","sha256":"1a00626969cd883fda4b5f19f3d3ee73d363504e40c667f624f30f3feddc4cab","role":"selected_a_direction_hero_environment","evidence":false},
+    {"path":"manuscripts/science-db-s10480.jpg","class":"licensed_real_manuscript","sha256":"cb33c95797f8451ee69016cfb06c9c4c51333d4de877843ac9eb5db6c97095fc","source":"ScienceDB DOI 10.57760/sciencedb.j00001.01083 / S.10480","license":"CC BY-NC-SA 4.0","evidence":false},
+    {"path":"manuscripts/science-db-s1931.jpg","class":"licensed_real_manuscript","sha256":"bf1aa2eb5554760aa1737eab118a6dbbbbc60be18af83e4ba76959f4b8dfc3fa","source":"ScienceDB DOI 10.57760/sciencedb.j00001.01083 / S.1931","license":"CC BY-NC-SA 4.0","evidence":false},
+    {"path":"replay/input.png","class":"verified_saved_replay","sha256":"3910bd72accf1d493254dbd6ea531523d2529a2dc41024359af8ff9b1e3bde11","source":"outputs/final_integration/e2e_input_EDH-DX01962-02052.png","evidence":true},
+    {"path":"replay/approved_mask.png","class":"verified_saved_replay","sha256":"473b9fb0281008cd66ccbc9e4e3fdd0cdd9450242a18f717b61d0606ad30b135","source":"outputs/final_integration/8f45998b-6219-443e-a09d-af06243feecb/approved_mask.png","evidence":true},
+    {"path":"replay/result.png","class":"verified_saved_replay","sha256":"94ecbb095549b37250ea41d72e322d4fb56031d92587338c228e750a80a762d2","source":"outputs/final_integration/8f45998b-6219-443e-a09d-af06243feecb/constrained_restored.png","evidence":true},
+    {"path":"replay/comparison.png","class":"verified_saved_replay","sha256":"68aa4fbdffbd31da0bcad2243316a40d23360d516c5f4c3851dd0bef09d6c198","source":"outputs/final_integration/8f45998b-6219-443e-a09d-af06243feecb/comparison.png","evidence":true},
+    {"path":"replay/outside_mask_audit.json","class":"verified_saved_replay","sha256":"beda0137b9280f924bb8206e32110d13073566d2c52e040e6bb340058661fd25","source":"outputs/final_integration/8f45998b-6219-443e-a09d-af06243feecb/outside_mask_audit.json","evidence":true},
+    {"path":"generated/v3/case-archive-environment.png","class":"generated_atmosphere","sha256":"16de3a827b1e8303fc3d1b33da5c0ab8f367602c2f6a7311fdfe50cfc574d578","role":"case_archive_environment","evidence":false},
+    {"path":"generated/v3/review-workspace-environment.png","class":"generated_atmosphere","sha256":"4e67e210a364836e699cedd5590d2e0ed27883db9f103ed7980bf70bd089ef40","role":"review_environment","evidence":false},
+    {"path":"generated/v3/result-viewer-environment.png","class":"generated_atmosphere","sha256":"07240a456142bdadb717c1c60dc13d47d55fc7ce1a60d48541c5fc3d4cffd8f5","role":"result_viewer_environment","evidence":false},
+    {"path":"generated/v3/data-provenance-environment.png","class":"generated_atmosphere","sha256":"24ec019abc737a7bf9a6e120258ccd31e158da889a7a817fb9b4cce621d92daa","role":"provenance_environment","evidence":false},
+    {"path":"generated/v3/mobile-conservation-scene.png","class":"generated_atmosphere","sha256":"a408a448bfd81ae820b78ded74c427df6510c86b4fd1763c132d282dc3759235","role":"mobile_archive_environment","evidence":false},
+    {"path":"generated/v3/collation-slips.png","class":"generated_atmosphere","sha256":"a18b5022350630f43b1ef8e40c7367ed104667b6543bc5f279b1b5169b967cb2","role":"blank_collation_texture","evidence":false},
+    {"path":"video/hero.webm","class":"project_motion","sha256":"d1522e6edb893f5bf22c37e77b30c83704f718cbe16540ec352d3e4672f86b6d","role":"hero_motion_primary","evidence":false},
+    {"path":"video/hero.mp4","class":"project_motion","sha256":"08930d8c08f70f2c337f830ee1133cda9e847bf85e9ea61ad2e9399a521daa31","role":"hero_motion_fallback","evidence":false},
+    {"path":"video/hero_poster.webp","class":"project_motion","sha256":"04adbf50eeab23cdf0e7e776f3d80700a7a841e1bc3eca5a0e31448f6f0608b5","role":"hero_motion_poster","evidence":false},
+    {"path":"rejoin/fragment_a.png","class":"verified_local_rejoin","sha256":"b3259cab7cd495b86f8d79e00b05c99a5b516204a82ca2b0029f9fe82ba2fddf","source":"outputs/local_entry/browser_fixture/fragment_a.png","evidence":true},
+    {"path":"rejoin/fragment_b.png","class":"verified_local_rejoin","sha256":"63939f28e7b47a2a22c18f0dd66d911e2558826f309f4988e8c23e2da65c533c","source":"outputs/local_entry/browser_fixture/fragment_b.png","evidence":true},
+    {"path":"rejoin/panorama_reference.png","class":"verified_complete_image_reference","sha256":"b637dd793009f6aadb7b4e02a47d3dbc297fb61bf58d60bcc0ce81ae2979f5f8","source":"outputs/final_integration/e2e_input_EDH-DX01962-02052_rerun_20260726.png","evidence":true},
+    {"path":"cases/sciencedb_real_rejoin_group.png","class":"verified_real_case_montage","sha256":"74c17f9858580ee48e09bee04ac0bcdbc633100712d026d8c901c8500adc3166","source":"outputs/plots/rejoin_real_homologous.png","evidence":true}
+  ]
+}

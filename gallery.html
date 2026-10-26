@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ScienceDB 残卷图库</title>
+  <link rel="stylesheet" href="static/preview.css">
+  <link rel="stylesheet" href="static/experience.css">
+  <style>
+    .gallery-page { padding-bottom: 80px; }
+    .gallery-head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(240px, .7fr); gap: 32px; align-items: end; margin: 28px 0 22px; }
+    .gallery-head h1 { margin: 8px 0 0; font-size: clamp(36px, 4vw, 58px); font-weight: 400; line-height: 1.15; }
+    .gallery-head p { margin: 0; color: var(--muted); line-height: 1.8; }
+    .gallery-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 18px; }
+    .gallery-tools button, .gallery-tools input { min-height: 40px; padding: 0 14px; border: 1px solid var(--line); background: rgba(255, 250, 236, .7); color: inherit; font: inherit; }
+    .gallery-tools button.is-active { color: #fff4dd; background: var(--red); border-color: var(--red); }
+    .gallery-tools input { flex: 1 1 220px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+    .gallery-card { padding: 0; border: 1px solid var(--line); background: #fffaf0; text-align: left; cursor: pointer; }
+    .gallery-card img { display: block; width: 100%; height: 140px; object-fit: cover; background: #efe4cf; }
+    .gallery-card span, .gallery-card small { display: block; padding: 0 10px; }
+    .gallery-card span { padding-top: 8px; }
+    .gallery-card small { padding-bottom: 10px; color: var(--muted); }
+    .gallery-empty { padding: 28px 0; color: var(--muted); }
+    .gallery-viewer { width: min(1100px, calc(100vw - 28px)); padding: 0; border: 1px solid rgba(90, 60, 31, .35); background: #f7f1e4; }
+    .gallery-viewer::backdrop { background: rgba(42, 28, 18, .5); }
+    .gallery-viewer figure { margin: 0; }
+    .gallery-viewer img { display: block; width: 100%; max-height: 78vh; object-fit: contain; background: #1c1612; }
+    .gallery-viewer figcaption { display: flex; justify-content: space-between; gap: 16px; padding: 14px 16px; }
+    @media (max-width: 800px) { .gallery-head { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="scrollweave home"><span class="brand-mark" aria-hidden="true"><img src="assets/brand/scrollweave-mark.png" alt=""></span><span class="brand-title">scrollweave</span></a>
+    <nav class="nav"><a href="index.html">首页</a><a href="history/index.html">藏经洞历史</a><a href="rejoin.html">缀合</a><a href="restoration.html">复原</a><a href="about.html">关于我们</a><a href="gallery.html" aria-current="page">残卷图库</a></nav>
+  </header>
+  <main class="page gallery-page">
+    <div class="gallery-head">
+      <div>
+        <div class="eyebrow">ScienceDB · 95 组</div>
+        <h1 id="gallery-title">366 张残卷</h1>
+      </div>
+      <p>这些图来自本地已解压的 ScienceDB 数据集，DOI 10.57760/sciencedb.j00001.01083。页面只负责查看，不把原图复制进前端文件夹。</p>
+    </div>
+    <div class="gallery-tools" role="toolbar" aria-label="筛选残卷">
+      <button type="button" class="is-active" data-group="all">全部</button>
+      <button type="button" data-group="真实缀合组">真实缀合组</button>
+      <button type="button" data-group="人工数据组">人工数据组</button>
+      <input type="search" data-gallery-query placeholder="按文件名或组名查找" aria-label="按文件名或组名查找">
+      <span data-gallery-count>正在读取</span>
+    </div>
+    <div class="gallery-grid" data-gallery-grid></div>
+    <p class="gallery-empty" data-gallery-empty hidden>没有符合条件的残卷。</p>
+    <p><a href="about.html">返回关于我们</a> · <a href="https://doi.org/10.57760/sciencedb.j00001.01083" target="_blank" rel="noreferrer">打开数据集出处</a></p>
+  </main>
+  <dialog class="gallery-viewer" data-gallery-viewer>
+    <form method="dialog">
+      <figure>
+        <img alt="" data-viewer-image>
+        <figcaption><span data-viewer-caption></span><button value="close">关闭</button></figcaption>
+      </figure>
+    </form>
+  </dialog>
+  <script>
+  (() => {
+    const grid = document.querySelector('[data-gallery-grid]');
+    const empty = document.querySelector('[data-gallery-empty]');
+    const count = document.querySelector('[data-gallery-count]');
+    const query = document.querySelector('[data-gallery-query]');
+    const viewer = document.querySelector('[data-gallery-viewer]');
+    const viewerImage = document.querySelector('[data-viewer-image]');
+    const viewerCaption = document.querySelector('[data-viewer-caption]');
+    const buttons = [...document.querySelectorAll('[data-group]')];
+    let items = [];
+    let group = 'all';
+
+    const render = () => {
+      const needle = query.value.trim().toLowerCase();
+      const visible = items.filter((item) => (group === 'all' || item.group === group) && (!needle || `${item.name} ${item.set} ${item.group}`.toLowerCase().includes(needle)));
+      grid.replaceChildren();
+      visible.forEach((item) => {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'gallery-card';
+        const image = document.createElement('img');
+        image.loading = 'lazy';
+        image.alt = `${item.group} ${item.set} ${item.name}`;
+        image.src = item.src;
+        const title = document.createElement('span');
+        title.textContent = item.name;
+        const meta = document.createElement('small');
+        meta.textContent = item.set || item.group;
+        card.append(image, title, meta);
+        card.addEventListener('click', () => {
+          viewerImage.src = item.src;
+          viewerImage.alt = image.alt;
+          viewerCaption.textContent = `${item.group} / ${item.set} / ${item.name}`;
+          viewer.showModal();
+        });
+        grid.append(card);
+      });
+      empty.hidden = visible.length > 0;
+      count.textContent = `显示 ${visible.length} / ${items.length}`;
+    };
+
+    buttons.forEach((button) => button.addEventListener('click', () => {
+      group = button.dataset.group;
+      buttons.forEach((item) => item.classList.toggle('is-active', item === button));
+      render();
+    }));
+    query.addEventListener('input', render);
+    fetch('assets/sciencedb-index.json')
+      .then((response) => { if (!response.ok) throw new Error('图库清单没有读到'); return response.json(); })
+      .then((data) => { items = data.items || []; render(); })
+      .catch((error) => { count.textContent = error.message; });
+  })();
+  </script>
+</body>
+</html>
