@@ -10,6 +10,7 @@ project.
   tests, deployment helpers, and web demo code.
 - `SOURCE/scripts/paper_inpainting/`: paper-restoration utility scripts.
 - `SOURCE/src/AutoHDR/`: project-facing AutoHDR code and integration utilities.
+- `FRONTEND/`: current static frontend preview (home, history, rejoin, restoration, about).
 - `RAG/rag_v2/releases/f09207f/code/`: RAG v2 retrieval and service code.
 - `RESTORATION/contracts/`: restoration geometry and human-review contracts.
 

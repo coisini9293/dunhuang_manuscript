@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文献复原 · 预览</title>
+  <link rel="stylesheet" href="static/preview.css">
+  <link rel="stylesheet" href="static/tool-journey.css">
+  <link rel="stylesheet" href="static/experience.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="scrollweave home"><span class="brand-mark" aria-hidden="true"><img src="assets/brand/scrollweave-mark.png" alt=""></span><span class="brand-title">scrollweave</span></a>
+    <nav class="nav"><a href="index.html">首页</a><a href="history/index.html">藏经洞历史</a><a href="rejoin.html">缀合</a><a href="restoration.html" aria-current="page">复原</a><a href="about.html">关于我们</a><a class="locale" href="#">中文</a></nav>
+  </header>
+  <main class="journey-page journey-page--restoration">
+    <section class="journey-cover journey-cover--restoration" aria-labelledby="cover-title">
+      <div class="restoration-visual" aria-hidden="true">
+        <img class="restoration-scroll" src="assets/manuscripts/science-db-s10480.jpg" alt="">
+        <span class="restoration-mask"></span>
+        <div class="citation-float"><span>可见文字 · 如是我闻</span><span>文献候选 · 佛经原文</span><span>匹配结果 · 作为辅助依据</span></div>
+      </div>
+      <div class="journey-cover__copy">
+        <p class="journey-kicker">文献证据约束</p>
+        <h1 id="cover-title">文献复原</h1>
+        <p class="journey-cover__lead">优先从佛经文献中寻找对应原文；未找到可靠匹配时，再结合上下文进行 AI 辅助推断。</p>
+        <p class="journey-cover__detail">复原内容始终保留候选与依据，不将辅助推断作为确定原文。</p>
+        <a class="journey-cta" href="#workspace" data-scroll-workspace>进入复原工作台 <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="journey-method" aria-labelledby="method-title">
+      <div class="journey-method__intro"><p class="eyebrow">复原路径</p><h2 id="method-title">先回到文献，<br>再处理缺失。</h2></div>
+      <div class="journey-method__rail">
+        <article class="journey-method__step"><b>01</b><h3>文献匹配</h3><p>优先在佛经与相关文献中寻找可靠对应原文。</p></article>
+        <div class="journey-method__line" aria-hidden="true"></div>
+        <article class="journey-method__step journey-method__step--secondary"><b>02</b><h3>AI 推断</h3><p>当文献无法可靠匹配时，再结合现有上下文进行辅助推断。</p></article>
+      </div>
+    </section>
+
+    <section id="workspace" class="journey-workspace" aria-labelledby="workspace-title">
+      <div class="journey-workspace__head"><div><p class="eyebrow">复原工作台</p><h2 id="workspace-title">上传残卷，逐步审阅依据。</h2></div><p>保留原有上传、文献匹配、辅助推断、进度与结果来源流程；所有分析在工作台中逐步呈现。</p></div>
+      <div class="journey-workspace__frame">
+        <section class="restoration-workbench" aria-label="残卷可读化复原工作台">
+          <img class="restoration-workbench-bg" src="assets/generated/restoration-workbench-combined.png" alt="连续的空白残卷复原工作台">
+          <label class="restoration-dropzone" aria-label="上传残卷"><input type="file" accept="image/*"><img class="restoration-preview" alt="上传残卷预览"><span class="restoration-copy"><svg class="upload-image-icon" aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 31V10"></path><path d="m15 19 9-9 9 9"></path><path d="M10 30v5a6 6 0 0 0 6 6h16a6 6 0 0 0 6-6v-5"></path></svg><strong>上传残卷</strong><span>上传需要进行可读化复原的残卷图像</span><small data-restoration-hint>点击或拖拽图片到此处</small></span><button type="button" class="upload-cancel" data-upload-cancel aria-label="取消上传残卷">取消上传</button></label>
+        </section>
+      </div>
+    </section>
+
+    <section class="experience-section restoration-flow experience-reveal" id="evidence-workflow" aria-labelledby="evidence-workflow-title">
+      <div class="experience-heading experience-heading--wide">
+        <div><p class="experience-kicker">EVIDENCE-CONSTRAINED RESTORATION</p><h2 id="evidence-workflow-title">证据、裁决与结果在同一条路径中</h2></div>
+        <p>这里使用保存的正式案例说明机制：文献候选只负责定位，研究者逐项决定哪些内容可以进入修复，未批准区域保持原像素。</p>
+      </div>
+
+      <div class="workflow-shell" data-restoration-flow>
+        <div class="workflow-banner"><i aria-hidden="true"></i><strong>VERIFIED REPLAY</strong><span>保存的 CBETA 与约束修复记录 · 不是本次新查询</span></div>
+        <nav class="workflow-stepper" aria-label="证据约束复原步骤">
+          <button type="button" class="is-active" data-restoration-step="evidence" aria-current="step"><b>01</b><span>文献证据</span><small>比较候选与出处</small></button>
+          <button type="button" data-restoration-step="review"><b>02</b><span>人工裁决</span><small>接受、修改或弃权</small></button>
+          <button type="button" data-restoration-step="plan"><b>03</b><span>修复方案</span><small>只收纳批准区域</small></button>
+          <button type="button" data-restoration-step="viewer"><b>04</b><span>结果复核</span><small>检查图层与差异</small></button>
+        </nav>
+
+        <div class="workflow-panels">
+          <section class="workflow-panel is-active" data-restoration-panel="evidence" aria-labelledby="evidence-panel-title">
+            <div class="panel-heading"><div><span>保存的全量 CBETA 结果</span><h3 id="evidence-panel-title">文献证据探索台</h3></div><p>候选并列呈现，歧义不会被隐藏；如果依据不足，可以直接保持弃权。</p></div>
+            <div class="evidence-layout-preview">
+              <aside class="query-folio-preview">
+                <div class="service-note"><i aria-hidden="true"></i><div><strong>保存结果可审阅</strong><span>当前页面不调用服务器</span></div></div>
+                <label>检索模式<select data-retrieval-mode><option value="baseline">Baseline · 默认</option><option value="noise">Noise-aware · OCR 噪声增强</option></select></label>
+                <label>左侧可见文字<textarea readonly>海體須彌微塵芥子一眾徧</textarea></label>
+                <label>右侧可见文字<textarea readonly>大威大智彿神通甚深甚廣甚</textarea></label>
+                <dl><div><dt>候选状态</dt><dd>存在歧义</dd></div><div><dt>证据范围</dt><dd>左右文之间</dd></div><div><dt>自动写入</dt><dd>禁止</dd></div></dl>
+              </aside>
+              <div class="candidate-stack">
+                <div class="candidate-stack__head"><strong>Top-k 候选并列比较</strong><span data-candidate-mode-label>Baseline 保存记录</span></div>
+                <button type="button" class="candidate-slip is-selected" data-candidate="攝於大千" data-citation="G083n2075_p0007a11–a15">
+                  <span class="candidate-rank">TOP 1 · G2075</span><strong>攝於大千</strong><em>同一出处</em>
+                  <p>海體須彌微塵芥子一眾徧 <mark>攝於大千</mark> 大威大智彿神通甚深甚廣甚</p>
+                  <small>《御製釋迦牟尼佛讚》· 卷1 · 左右文之间</small>
+                </button>
+                <button type="button" class="candidate-slip candidate-slip--noise" data-candidate="徧攝於大" data-citation="G083n2075_p0007a11–a15">
+                  <span class="candidate-rank">TOP 2 · G2075</span><strong>徧攝於大</strong><em>偏移窗口</em>
+                  <p>同一出处的偏移候选，保留以展示 OCR 噪声可能带来的歧义。</p>
+                  <small>Noise-aware 保存记录 · 不自动采纳</small>
+                </button>
+                <div class="evidence-abstain"><strong>证据不足时</strong><span>保持弃权，不用语言模型自由生成缺字。</span></div>
+                <div class="panel-actions"><span data-selected-evidence>当前选择：攝於大千</span><button type="button" class="paper-button paper-button--primary" data-send-review>送入人工裁决</button></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="workflow-panel" data-restoration-panel="review" aria-labelledby="review-panel-title" hidden>
+            <div class="panel-heading"><div><span>HUMAN GATE · 区域人工审核</span><h3 id="review-panel-title">逐项裁决，不让按钮代替判断</h3></div><p>每个区域都需要明确决定和理由，只有接受或人工修改的内容才能进入下一步。</p></div>
+            <div class="review-layout-preview">
+              <aside class="region-index-preview">
+                <div class="review-progress"><span><i data-review-progress></i></span><b data-review-progress-label>1 / 3 示例区域</b></div>
+                <button type="button" class="is-active" data-region="0" data-status="approved" data-candidate-text="於" data-citation-text="G2075《御製釋迦牟尼佛讚》卷1"><i></i><span>区域 0000</span><small>候选：於</small></button>
+                <button type="button" data-region="1" data-status="rejected" data-candidate-text="大" data-citation-text="候选与残损形态冲突"><i></i><span>区域 0001</span><small>保存记录：拒绝</small></button>
+                <button type="button" data-region="2" data-status="abstained" data-candidate-text="未决" data-citation-text="单侧上下文，证据不足"><i></i><span>区域 0002</span><small>保存记录：弃权</small></button>
+              </aside>
+              <div class="region-visual-preview">
+                <img src="assets/replay/input.png" loading="lazy" alt="正式回放原始残卷">
+                <img class="region-mask-preview" src="assets/replay/approved_mask.png" loading="lazy" alt="人工批准区域蒙版">
+                <span>当前区域 · <b data-region-label>0000</b></span>
+              </div>
+              <div class="region-decision-preview">
+                <span data-region-status>已批准区域 · 保存记录</span>
+                <h4>候选文字：<b data-region-candidate>於</b></h4>
+                <p data-region-citation>G2075《御製釋迦牟尼佛讚》卷1</p>
+                <label>编辑说明<textarea data-review-note placeholder="记录接受、修改、拒绝或弃权理由"></textarea></label>
+                <label>拒绝／弃权原因<select data-review-reason><option>不适用</option><option>证据不足</option><option>候选冲突</option><option>单侧上下文</option><option>疑似伪字风险</option></select></label>
+                <div class="decision-seals" aria-label="人工裁决选项"><button type="button" data-decision="approved">接受</button><button type="button" data-decision="edited">修改</button><button type="button" data-decision="rejected">拒绝</button><button type="button" data-decision="abstained">弃权</button></div>
+                <div class="decision-feedback" data-decision-feedback aria-live="polite">请选择一项决定，系统会立即更新修复方案。</div>
+                <button type="button" class="paper-button paper-button--primary decision-next" data-build-plan>生成修复方案</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="workflow-panel workflow-panel--plan" data-restoration-panel="plan" aria-labelledby="plan-panel-title" hidden>
+            <div class="panel-heading panel-heading--light"><div><span>REPAIR PLAN · HUMAN APPROVED</span><h3 id="plan-panel-title">修复方案只收纳批准区域</h3></div><p>没有被人工接受的区域不会进入图像处理，也不会被补写为确定原文。</p></div>
+            <div class="plan-ledger-preview">
+              <div><span>批准区域</span><strong data-plan-approved>1</strong><small>允许进入修复</small></div>
+              <div><span>确认文字</span><strong data-plan-text>於</strong><small>来自已选文献候选</small></div>
+              <div><span>拒绝区域</span><strong data-plan-rejected>1</strong><small>保持原像素</small></div>
+              <div><span>弃权区域</span><strong data-plan-abstained>1</strong><small>等待更多证据</small></div>
+              <div><span>约束检查</span><strong>PASS</strong><small>批准范围外变化为 0</small></div>
+            </div>
+            <div class="plan-route" aria-hidden="true"><span>文献证据</span><i></i><span>人工批准</span><i></i><span>限定区域</span><i></i><span>结果复核</span></div>
+            <div class="panel-actions panel-actions--dark"><span>方案会随着人工裁决实时更新。</span><button type="button" class="paper-button paper-button--gold" data-open-viewer>进入结果复核</button></div>
+          </section>
+
+          <section class="workflow-panel workflow-panel--viewer" data-restoration-panel="viewer" aria-labelledby="viewer-panel-title" hidden>
+            <div class="panel-heading panel-heading--light"><div><span>OFFICIAL AUTOHDR · SAVED REPLAY</span><h3 id="viewer-panel-title">专业结果查看器</h3></div><p>通过图层切换、擦拭和透明度检查修复影响；工程通过不等于人工视觉验收完成。</p></div>
+            <div class="result-viewer-preview">
+              <div class="viewer-main-preview">
+                <div class="viewer-toolbar-preview"><button type="button" data-viewer-action="fit">适应窗口</button><button type="button" data-viewer-action="in">放大</button><button type="button" data-viewer-action="out">缩小</button><button type="button" data-viewer-action="flicker">闪烁对比</button></div>
+                <div class="viewer-layer-tabs" role="tablist" aria-label="复原结果图层"><button type="button" class="is-active" data-viewer-layer="input" aria-selected="true">原图</button><button type="button" data-viewer-layer="mask" aria-selected="false">批准区域</button><button type="button" data-viewer-layer="overlay" aria-selected="false">滑动对比</button><button type="button" data-viewer-layer="result" aria-selected="false">结果</button><button type="button" data-viewer-layer="difference" aria-selected="false">差异</button></div>
+                <div class="image-viewport-preview" data-result-viewport data-layer="input">
+                  <div class="viewer-pan-preview" data-viewer-pan>
+                    <img class="viewer-input-preview" src="assets/replay/input.png" loading="lazy" alt="保存回放原图">
+                    <img class="viewer-result-preview" src="assets/replay/result.png" loading="lazy" alt="保存回放约束修复结果">
+                    <img class="viewer-mask-layer" src="assets/replay/approved_mask.png" loading="lazy" alt="人工批准区域">
+                    <img class="viewer-difference-preview" src="assets/replay/comparison.png" loading="lazy" alt="保存回放差异对比">
+                  </div>
+                  <span class="viewer-scanline" aria-hidden="true"></span>
+                  <input data-result-wipe type="range" min="10" max="90" value="50" aria-label="调整复原前后滑动对比位置">
+                </div>
+                <label class="viewer-opacity">批准区域透明度<input data-layer-opacity type="range" min="10" max="100" value="62"><output data-opacity-output>62%</output></label>
+              </div>
+              <aside class="audit-drawer-preview">
+                <span>CASE 8F45998B</span><h4>工程与人工状态</h4>
+                <dl><div><dt>工程约束检查</dt><dd class="is-pass">通过</dd></div><div><dt>人工视觉验收</dt><dd>尚未完成</dd></div><div><dt>批准区域内变化</dt><dd>1,935 px</dd></div><div><dt>批准区域外变化</dt><dd class="is-pass">0 px</dd></div><div><dt>拒绝／弃权区域变化</dt><dd class="is-pass">0 px</dd></div></dl>
+                <p>结果只改变人工批准的区域；请继续检查字形、墨色与纸张纹理是否自然。</p>
+              </aside>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="static/tool-journey.js"></script>
+  <script>
+  (() => {
+    const zone = document.querySelector('.restoration-dropzone'); const input = zone?.querySelector('input[type=file]'); const preview = zone?.querySelector('.restoration-preview'); const hint = zone?.querySelector('[data-restoration-hint]');
+    if (!zone || !input || !preview) return;
+    const setFile = (file) => { if (!file || !file.type.startsWith('image/')) return; if (preview.dataset.objectUrl) URL.revokeObjectURL(preview.dataset.objectUrl); preview.dataset.objectUrl = URL.createObjectURL(file); preview.src = preview.dataset.objectUrl; preview.alt = `上传残卷预览 · ${file.name}`; zone._uploadedFile = file; zone.classList.add('has-file'); if (hint) hint.textContent = '点击更换图片'; zone.dispatchEvent(new Event('restoration-file-ready')); };
+    input.addEventListener('change', () => setFile(input.files?.[0]));
+    zone.addEventListener('dragover', (event) => { event.preventDefault(); zone.classList.add('is-dragover'); if (hint && !zone.classList.contains('has-file')) hint.textContent = '松开以上传残卷'; });
+    zone.addEventListener('dragleave', (event) => { if (event.relatedTarget && zone.contains(event.relatedTarget)) return; zone.classList.remove('is-dragover'); if (hint && !zone.classList.contains('has-file')) hint.textContent = '点击或拖拽图片到此处'; });
+    zone.addEventListener('drop', (event) => { event.preventDefault(); zone.classList.remove('is-dragover'); setFile(event.dataTransfer?.files?.[0]); });
+    zone.querySelector('[data-upload-cancel]')?.addEventListener('click', (event) => {
+      event.preventDefault(); event.stopPropagation();
+      if (preview.dataset.objectUrl) { URL.revokeObjectURL(preview.dataset.objectUrl); delete preview.dataset.objectUrl; }
+      input.value = ''; zone._uploadedFile = null; preview.removeAttribute('src'); preview.alt = '上传残卷预览'; zone.classList.remove('has-file', 'is-dragover'); if (hint) hint.textContent = '点击或拖拽图片到此处'; zone.dispatchEvent(new Event('restoration-file-ready'));
+    });
+  })();
+  </script>
+  <script>
+  (() => {
+    const workbench = document.querySelector('.restoration-workbench'); const zone = document.querySelector('.restoration-dropzone'); if (!workbench || !zone) return;
+    const preview = zone.querySelector('.restoration-preview'); const hint = zone.querySelector('[data-restoration-hint]');
+    const Status = Object.freeze({ IDLE:'idle', OCR:'ocr', SEARCH:'search', MATCHED:'matched', FAILED:'failed', AI:'ai', RESTORING:'restoring', DONE:'done' });
+    const labels = { [Status.IDLE]:'', [Status.OCR]:'文字识别中', [Status.SEARCH]:'文献匹配中', [Status.MATCHED]:'文献匹配成功', [Status.FAILED]:'未找到可靠文献', [Status.AI]:'AI 辅助推断中', [Status.RESTORING]:'正在复原', [Status.DONE]:'复原完成' };
+    const progress = { [Status.IDLE]:'0%', [Status.OCR]:'22%', [Status.SEARCH]:'48%', [Status.MATCHED]:'66%', [Status.FAILED]:'54%', [Status.AI]:'74%', [Status.RESTORING]:'88%', [Status.DONE]:'100%' };
+    const wait = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
+    const apiBase = window.DUNHUANG_API_BASE || '';
+    const workflow = document.querySelector('[data-restoration-flow]');
+    const workflowBanner = workflow?.querySelector('.workflow-banner');
+    const workflowHeading = workflow?.querySelector('[data-restoration-panel="evidence"] .panel-heading span');
+    const serviceNote = workflow?.querySelector('.service-note');
+    const selectedEvidence = workflow?.querySelector('[data-selected-evidence]');
+    const reflectLiveCase = ({ caseId, bundle, ragResult, unavailable = false } = {}) => {
+      if (workflowBanner) {
+        workflowBanner.querySelector('strong').textContent = 'LIVE BACKEND CASE';
+        workflowBanner.querySelector('span').textContent = caseId
+          ? `真实后端案例 ${caseId}${unavailable ? ' · OCR 完成但没有可检索上下文' : ' · OCR / CBETA 查询已执行'}`
+          : '真实后端任务正在运行';
+      }
+      if (workflowHeading) workflowHeading.textContent = unavailable ? '本次真实 OCR 结果' : '本次真实 CBETA 候选';
+      if (serviceNote) {
+        const title = serviceNote.querySelector('strong'); const detail = serviceNote.querySelector('span');
+        if (title) title.textContent = unavailable ? '本次结果保持弃权' : '真实服务端结果';
+        if (detail) detail.textContent = unavailable
+          ? '没有可检索上下文；不会生成或提交修复。'
+          : `候选包 ${bundle?.candidate_bundle_sha256 || '已生成'}${ragResult?.candidate_count != null ? ` · 返回 ${ragResult.candidate_count} 条候选` : ''}`;
+      }
+      if (selectedEvidence) selectedEvidence.textContent = unavailable
+        ? '当前选择：保持弃权（无可靠文字上下文）'
+        : '当前选择：等待研究者在真实候选中裁决';
+    };
+    const stage = document.createElement('div'); stage.className = 'restoration-stage'; stage.setAttribute('aria-live','polite');
+    const source = document.createElement('div'); source.className = 'restoration-result-source';
+    const notice = document.createElement('div'); notice.className = 'restoration-notice'; notice.setAttribute('role','status'); notice.innerHTML = '<div class="restoration-notice-panel"><span>复原分析</span><h2></h2><p></p></div>';
+    const start = document.createElement('button'); start.type = 'button'; start.className = 'workbench-start-button'; start.textContent = '上传残卷后开始'; start.setAttribute('aria-label','上传残卷后开始'); start.disabled = true;
+    workbench.append(stage, source, notice, start);
+    const setStatus = (status) => { stage.textContent = labels[status]; stage.style.setProperty('--progress',progress[status]); workbench.dataset.restoreStatus = status; };
+    const sync = () => { if (start.dataset.running === 'true') return; start.disabled = !zone.classList.contains('has-file'); start.textContent = zone.classList.contains('has-file') ? '开始复原分析' : '上传残卷后开始'; start.setAttribute('aria-label', start.textContent); setStatus(Status.IDLE); };
+    const showNotice = async (title, body) => { notice.querySelector('h2').textContent = title; notice.querySelector('p').textContent = body; notice.classList.add('is-visible'); await wait(1100); notice.classList.remove('is-visible'); await wait(180); };
+    const showSource = (type) => { source.classList.add('is-visible'); source.innerHTML = type === 'document' ? '来源：文献原文匹配<small>依据检索到的佛经 / 敦煌文献原文复原</small>' : '来源：AI 辅助推断<small>基于现有上下文推断，仅作为辅助参考</small>'; };
+    const stitchedContext = () => {
+      try { return JSON.parse(window.sessionStorage.getItem('dunhuangRejoinComplete') || 'null'); }
+      catch (_) { return null; }
+    };
+    const loadStitchedResult = async () => {
+      const stitched = stitchedContext();
+      if (!stitched?.resultUrl || !stitched?.jobId || !stitched?.stitchedSha256 || zone._uploadedFile) return;
+      const response = await fetch(stitched.resultUrl);
+      if (!response.ok) throw new Error(await response.text());
+      const blob = await response.blob();
+      const file = new File([blob], `stitched-${stitched.jobId}.png`, { type: 'image/png' });
+      const input = zone.querySelector('input[type=file]');
+      if (preview.dataset.objectUrl) URL.revokeObjectURL(preview.dataset.objectUrl);
+      preview.dataset.objectUrl = URL.createObjectURL(file); preview.src = preview.dataset.objectUrl;
+      preview.alt = '本次真实缀合结果，将进入复原分析'; zone._uploadedFile = file;
+      zone.classList.add('has-file');
+      if (hint) hint.textContent = '已载入本次真实缀合结果；点击可更换图片';
+      if (input) input.value = '';
+      zone.dispatchEvent(new Event('restoration-file-ready'));
+    };
+    const begin = async () => {
+      if (!zone.classList.contains('has-file') || start.dataset.running === 'true' || !zone._uploadedFile) return;
+      start.dataset.running = 'true'; start.disabled = true; start.classList.add('is-started'); start.textContent = '提交真实分析'; source.classList.remove('is-visible');
+      try {
+        const form = new FormData(); form.append('image', zone._uploadedFile);
+        const stitched = stitchedContext();
+        if (stitched?.jobId && stitched?.stitchedSha256 && zone._uploadedFile.name === `stitched-${stitched.jobId}.png`) {
+          form.append('source_rejoin_job_id', stitched.jobId);
+          form.append('source_rejoin_sha256', stitched.stitchedSha256);
+        }
+        const created = await fetch(`${apiBase}/api/cases`, { method: 'POST', body: form, headers: { 'X-Client-Version': 'preview-sandbox' } });
+        if (!created.ok) throw new Error(await created.text()); const caseData = await created.json();
+        reflectLiveCase({ caseId: caseData.case_id });
+        setStatus(Status.OCR); const analyzed = await fetch(`${apiBase}/api/cases/${caseData.case_id}/analyze`, { method: 'POST', headers: { 'X-Client-Version': 'preview-sandbox' } });
+        if (!analyzed.ok) throw new Error(await analyzed.text());
+        for (;;) {
+          const detailResponse = await fetch(`${apiBase}/api/cases/${caseData.case_id}`); if (!detailResponse.ok) throw new Error(await detailResponse.text());
+          const detail = await detailResponse.json();
+          if (detail.status === 'ANALYSIS_FAILED') throw new Error(detail.error_detail || detail.error_code || '官方分析失败');
+          if (detail.status === 'ANALYSIS_COMPLETE') break;
+          await wait(1200);
+        }
+        setStatus(Status.SEARCH); const bundleResponse = await fetch(`${apiBase}/api/cases/${caseData.case_id}/candidate-bundle`); if (!bundleResponse.ok) throw new Error(await bundleResponse.text());
+        const bundle = await bundleResponse.json(); const region = bundle.regions?.find((item) => item.ocr_before || item.ocr_after);
+        if (region) {
+          const rag = await fetch(`${apiBase}/api/cases/${caseData.case_id}/rag/search`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Client-Version': 'preview-sandbox' }, body: JSON.stringify({ region_id: region.region_id, context_before: region.ocr_before || '', context_after: region.ocr_after || '', top_k: 5 }) });
+          if (!rag.ok) throw new Error(await rag.text()); const ragResult = await rag.json();
+          reflectLiveCase({ caseId: caseData.case_id, bundle, ragResult });
+          setStatus(Status.MATCHED); showSource('document'); await showNotice('真实分析完成','OCR 与文献检索已完成，候选将保留给人工审核后再进入正式复原。');
+        } else {
+          reflectLiveCase({ caseId: caseData.case_id, bundle, unavailable: true });
+          setStatus(Status.FAILED); await showNotice('未获得可检索上下文','真实 OCR 已完成，但没有可供文献检索的上下文。');
+        }
+        window.sessionStorage.setItem('dunhuangRestorationCase', JSON.stringify({ caseId: caseData.case_id, inputSha256: caseData.input_sha256, sourceRejoinJobId: stitched?.jobId || '' }));
+        setStatus(Status.DONE); window.dispatchEvent(new CustomEvent('restoration-analysis-complete', { detail: { caseId: caseData.case_id } }));
+      } catch (error) { setStatus(Status.FAILED); await showNotice('真实分析失败', error.message); }
+      finally { start.dataset.running = 'false'; start.disabled = false; start.classList.remove('is-started'); start.textContent = '开始复原分析'; start.setAttribute('aria-label', '开始复原分析'); }
+    };
+    zone.addEventListener('restoration-file-ready', sync); start.addEventListener('click', begin); sync();
+    loadStitchedResult().catch((error) => { if (hint) hint.textContent = `未能载入本次缀合结果：${error.message}`; });
+  })();
+  </script>
+  <script src="static/tool-experience.js"></script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>藏经洞历史 · 一窟千年</title>
+  <script>document.documentElement.classList.add('history-restoring');</script>
+  <link rel="stylesheet" href="../static/preview.css">
+  <style>
+    html:has(.history-story) { scroll-snap-type:none; }
+    html.history-restoring .history-story { visibility:hidden; }
+    .history-story { --history-header:78px; --chapter-count:7; background:var(--paper); }
+    .story-cover, .story-ending { position:relative; min-height:calc(100svh - var(--history-header)); overflow:hidden; }
+    .story-cover { display:flex; align-items:flex-end; padding:clamp(42px,7vw,104px) max(6vw,calc((100vw - 1420px) / 2)); color:#fff8e9; background:#4b3925; isolation:isolate; }
+    .story-cover img, .story-cover::after { position:absolute; inset:0; width:100%; height:100%; }
+    .story-cover img { z-index:-2; object-fit:cover; object-position:center; }
+    .story-cover::after { z-index:-1; content:""; background:linear-gradient(90deg,rgba(32,23,14,.74),rgba(37,27,17,.2) 68%),linear-gradient(0deg,rgba(29,20,12,.58),transparent 50%); }
+    .story-cover-copy { max-width:600px; padding-bottom:clamp(58px,9vh,104px); }
+    .story-cover .eyebrow { color:#e6c2a2; }
+    .story-cover h1 { margin:14px 0 13px; color:#fff8e9; font-size:clamp(50px,6.35vw,94px); font-weight:400; line-height:1; letter-spacing:-.05em; }
+    .story-cover p { margin:0; color:rgba(255,248,233,.86); font-size:clamp(15px,1.35vw,19px); letter-spacing:.08em; }
+    .history-reading { position:relative; }
+    .history-stage { position:sticky; top:var(--history-header); height:calc(100svh - var(--history-header)); overflow:hidden; isolation:isolate; background:#463724; }
+    .history-backdrops, .history-backdrop, .history-scrim { position:absolute; inset:0; }
+    .history-backdrop { z-index:0; margin:0; visibility:hidden; opacity:0; will-change:opacity; overflow:hidden; }
+    .history-backdrop:first-child { visibility:visible; opacity:1; }
+    .history-backdrop img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+    .history-scrim { z-index:1; pointer-events:none; background:linear-gradient(90deg,rgba(34,25,15,.78) 0%,rgba(45,33,20,.56) 34%,rgba(56,40,24,.17) 62%,rgba(56,40,24,.16) 100%),linear-gradient(0deg,rgba(26,18,11,.24),transparent 40%,rgba(26,18,11,.16)); }
+    .history-copy-window { position:absolute; z-index:2; left:max(6vw,calc((100vw - 1420px) / 2)); top:50%; width:min(455px,34vw); height:min(440px,58vh); overflow:hidden; transform:translateY(-50%); }
+    .history-copy-item { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; color:#fff8e9; opacity:0; transform:translate3d(0,100%,0); will-change:transform,opacity; pointer-events:none; }
+    .history-copy-item:first-child { opacity:1; transform:translate3d(0,0,0); pointer-events:auto; }
+    .history-copy-item .year { display:block; margin:0 0 12px; color:#eac9a9; font:500 17px/1.5 Arial,sans-serif; letter-spacing:.15em; }
+    .history-copy-item h1 { margin:0 0 22px; max-width:9em; color:#fff9ec; font-size:clamp(38px,3.6vw,58px); font-weight:400; line-height:1.14; letter-spacing:-.035em; text-wrap:balance; }
+    .history-copy-item p { max-width:29em; margin:0; color:rgba(255,248,233,.88); font-size:18px; line-height:1.82; }
+    .history-copy-item .detail-link { align-self:flex-start; margin-top:28px; padding-bottom:7px; color:#fff7e7; border-bottom:1px solid rgba(231,186,149,.78); font-size:15px; letter-spacing:.06em; }
+    .history-copy-item .detail-link:hover { color:#eac09d; }
+    .history-progress { position:absolute; z-index:3; right:max(3.2vw,26px); top:50%; display:grid; gap:11px; transform:translateY(-50%); }
+    .history-progress button { position:relative; width:22px; height:14px; padding:0; border:0; background:transparent; color:rgba(255,248,233,.48); cursor:pointer; }
+    .history-progress button::before { content:""; position:absolute; top:6px; right:0; width:12px; height:1px; background:currentColor; transition:width .35s ease,color .35s ease; }
+    .history-progress button.active { color:#edc5a4; }
+    .history-progress button.active::before { width:22px; }
+    .story-continue { position:absolute; z-index:5; left:50%; bottom:25px; display:inline-flex; align-items:center; gap:9px; padding:7px 12px; border:0; border-bottom:1px solid currentColor; background:rgba(248,237,217,.08); color:rgba(255,244,226,.9); font:12px/1.3 Arial,sans-serif; letter-spacing:.13em; transform:translateX(-50%); cursor:pointer; }
+    .story-continue::after { content:"↓"; display:inline-block; animation:story-cue 2.4s ease-in-out infinite; }
+    .story-cover .story-continue { color:#fff2de; }
+    .history-stage .story-continue { bottom:22px; }
+    @keyframes story-cue { 50% { transform:translateY(3px); } }
+    .history-scroll { height:calc((var(--chapter-count) - 1) * 1.6 * (100svh - var(--history-header))); }
+    .history-snap { display:block; height:calc(1.6 * (100svh - var(--history-header))); }
+    .history-snap:first-child { height:0; }
+    .story-ending { display:grid; grid-template-columns:1.25fr .75fr; gap:clamp(18px,3vw,44px); align-items:stretch; padding:clamp(42px,7vw,100px) max(6vw,calc((100vw - 1420px) / 2)); color:#fff8e9; background:linear-gradient(135deg,#443221,#765339 48%,#d0b085); }
+    .story-ending::before { content:""; position:absolute; inset:0; opacity:.16; background:repeating-linear-gradient(90deg,transparent 0 8.2%,rgba(255,244,225,.42) 8.3%); pointer-events:none; }
+    .ending-intro, .ending-grid { position:relative; z-index:1; }
+    .ending-intro { align-self:end; max-width:490px; padding-bottom:5px; }
+    .ending-intro .eyebrow { color:#f0c8a4; }
+    .ending-intro h2 { margin:14px 0 16px; color:#fff8e9; font-size:clamp(46px,5.8vw,82px); font-weight:400; line-height:1.03; letter-spacing:-.045em; }
+    .ending-intro p { margin:0; color:rgba(255,248,233,.84); font-size:17px; line-height:1.85; }
+    .ending-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; min-height:min(600px,74vh); }
+    .ending-card { position:relative; display:flex; flex-direction:column; justify-content:flex-end; min-height:0; padding:28px; overflow:hidden; background:#3c2a1c; color:#fff8e9; isolation:isolate; }
+    .ending-card:first-child { grid-column:1 / -1; }
+    .ending-card img, .ending-card::after { position:absolute; inset:0; width:100%; height:100%; }
+    .ending-card img { z-index:-2; object-fit:cover; transition:transform .6s ease; }
+    .ending-card::after { z-index:-1; content:""; background:linear-gradient(0deg,rgba(30,20,13,.82),rgba(30,20,13,.08) 76%); }
+    .ending-card:hover img { transform:scale(1.035); }
+    .ending-card h3 { margin:0 0 8px; color:#fff8e9; font-size:clamp(25px,2.3vw,36px); font-weight:400; }
+    .ending-card p { margin:0; color:rgba(255,248,233,.82); font-size:14px; line-height:1.7; }
+    .ending-card span { display:block; margin-top:19px; color:#f0c8a4; font:13px/1 Arial,sans-serif; letter-spacing:.09em; }
+    @media (max-width:900px) {
+      .story-cover { padding-left:7vw; padding-right:7vw; }
+      .history-copy-window { left:7vw; width:min(520px,79vw); height:min(440px,58vh); }
+      .history-scrim { background:linear-gradient(90deg,rgba(35,25,15,.79),rgba(42,30,18,.38) 74%,rgba(42,30,18,.23)),linear-gradient(0deg,rgba(24,17,11,.3),transparent 50%); }
+      .history-progress { right:18px; }
+      .story-ending { grid-template-columns:1fr; }
+      .ending-intro { align-self:start; }
+      .ending-grid { min-height:540px; }
+    }
+    @media (max-width:560px) {
+      .story-cover h1 { font-size:clamp(44px,13vw,64px); }
+      .story-cover p { max-width:17em; line-height:1.7; }
+      .history-copy-window { left:7vw; width:76vw; height:min(480px,68vh); }
+      .history-copy-item .year { font-size:15px; }
+      .history-copy-item h1 { margin-bottom:18px; font-size:clamp(35px,9.5vw,48px); }
+      .history-copy-item p { font-size:16px; line-height:1.8; }
+      .history-progress { right:12px; gap:8px; }
+      .story-continue { bottom:16px; font-size:11px; }
+      .ending-grid { grid-template-columns:1fr; min-height:740px; }
+      .ending-card:first-child { grid-column:auto; }
+      .ending-card { min-height:220px; padding:22px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html:has(.history-story) { scroll-snap-type:none; }
+      .history-backdrop, .history-copy-item, .history-progress button::before, .ending-card img { transition:none!important; }
+      .story-continue::after { animation:none; }
+    }
+    /* 历史结尾：从时间线自然过渡至三个并列的下一章入口。 */
+    .history-copy-item h1{opacity:var(--chapter-title-opacity,1);transform:translate3d(0,var(--chapter-title-offset,0),0);will-change:opacity,transform}
+    .history-copy-item p,.history-copy-item .detail-link{opacity:var(--chapter-detail-opacity,1);transform:translate3d(0,var(--chapter-detail-offset,0),0);will-change:opacity,transform}
+    .story-ending{display:block;min-height:calc(100svh - var(--history-header));padding:clamp(68px,9vw,128px) max(6vw,calc((100vw - 1420px) / 2)) clamp(96px,12vw,162px);isolation:isolate;color:#302215;background:#d6bd96;overflow:hidden}
+    .story-ending::before{z-index:-2;opacity:.27;background:linear-gradient(90deg,rgba(240,225,197,.9),rgba(210,178,135,.45)),url("../assets/generated/v3/review-workspace-environment.png") center / cover no-repeat;animation:ending-light 22s ease-in-out infinite alternate}
+    .story-ending::after{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;opacity:.33;background-image:radial-gradient(rgba(101,71,42,.25) .65px,transparent .75px),linear-gradient(180deg,rgba(249,239,218,.45),rgba(144,98,61,.13));background-size:10px 10px,100% 100%}
+    @keyframes ending-light{from{background-position:center,48% 50%}to{background-position:center,53% 46%}}
+    .ending-intro{position:relative;z-index:2;max-width:660px;padding:0 0 clamp(40px,5vw,70px);color:#382616}
+    .ending-intro .eyebrow{color:#9d4b36}
+    .ending-intro h2{margin:13px 0 15px;color:#302215;font-size:clamp(46px,5.6vw,76px)}
+    .ending-intro p{max-width:35em;color:#60472f;font-size:17px}
+    .ending-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;min-height:0}
+    .ending-card,.ending-card:first-child{grid-column:auto;min-height:clamp(310px,29vw,410px);padding:clamp(24px,2.25vw,34px);background:#5b3e28;transform:translateY(0);transition:transform .5s cubic-bezier(.22,.61,.36,1),opacity .55s ease}
+    .ending-card::after{background:linear-gradient(0deg,rgba(38,25,16,.86),rgba(55,35,20,.22) 78%);transition:background .45s ease}
+    .ending-card img{transform:scale(1.01);transition:transform .65s cubic-bezier(.22,.61,.36,1)}
+    .ending-card:hover img,.ending-card:focus-visible img{transform:scale(1.04)}
+    .ending-card:hover::after,.ending-card:focus-visible::after{background:linear-gradient(0deg,rgba(29,19,12,.9),rgba(40,27,17,.48) 80%)}
+    .ending-card:hover,.ending-card:focus-visible{transform:translateY(-6px)}
+    .ending-card h3{transition:transform .4s ease}
+    .ending-card:hover h3,.ending-card:focus-visible h3{transform:translateY(-5px)}
+    .ending-card span{transition:transform .35s ease}
+    .ending-card:hover span,.ending-card:focus-visible span{transform:translateX(6px)}
+    .ending-fragment{position:absolute;z-index:1;display:block;width:clamp(125px,15vw,230px);height:auto;pointer-events:none;opacity:.24;filter:sepia(.4) saturate(.72);animation:fragment-float 12s ease-in-out infinite alternate}
+    .ending-fragment-one{top:7%;right:7%;transform:rotate(14deg)}
+    .ending-fragment-two{bottom:7%;left:3%;width:clamp(94px,11vw,176px);transform:rotate(-17deg);animation-delay:-4s}
+    .ending-fragment-three{top:36%;right:1.5%;width:clamp(82px,9vw,145px);transform:rotate(-8deg);animation-delay:-8s}
+    @keyframes fragment-float{from{translate:0 0}to{translate:0 -15px}}
+    .history-story.story-motion-ready .ending-card{opacity:0;transform:translateY(30px)}
+    .history-story.story-motion-ready .ending-card.is-revealed{opacity:1;transform:translateY(0)}
+    .history-story.story-motion-ready .ending-card:nth-child(2){transition-delay:150ms}
+    .history-story.story-motion-ready .ending-card:nth-child(3){transition-delay:300ms}
+    @media(max-width:900px){.story-ending{padding-top:76px;padding-bottom:112px}.ending-grid{grid-template-columns:1fr}.ending-card,.ending-card:first-child{min-height:280px}.ending-fragment-three{display:none}}
+    @media(prefers-reduced-motion:reduce){.story-ending::before,.ending-fragment{animation:none}.ending-card,.ending-card img,.ending-card h3,.ending-card span{transition:none}.history-story.story-motion-ready .ending-card{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="Rejoin Archive home"><span class="brand-mark" aria-hidden="true"><span class="brand-glyph">R</span></span><span><span class="brand-title">REJOIN ARCHIVE</span></span></a>
+    <nav class="nav"><a href="../index.html">首页</a><a href="index.html" aria-current="page">藏经洞历史</a><a href="../rejoin.html">缀合</a><a href="../restoration.html">复原</a><a href="../about.html">关于我们</a><a class="locale" href="#">中文</a></nav>
+  </header>
+  <main class="history-story" aria-label="藏经洞历史章节叙事">
+    <section class="story-cover" aria-labelledby="story-cover-title">
+      <img src="../assets/history-generated/藏经洞历史封面.jpg" alt="藏经洞历史封面">
+      <div class="story-cover-copy"><div class="eyebrow">数字历史故事</div><h1 id="story-cover-title">藏经洞历史</h1><p>一窟封藏，百年流散，千年重逢</p></div>
+      <button class="story-continue" type="button" data-story-continue="cover">继续阅读</button>
+    </section>
+    <section class="history-reading" aria-label="一窟千年">
+      <div class="history-stage">
+        <div class="history-backdrops" aria-hidden="true">
+          <figure class="history-backdrop"><img src="../assets/history-generated/01-文物封藏.png" alt=""></figure><figure class="history-backdrop"><img src="../assets/history-generated/02-王圆箓发现藏经洞.png" alt=""></figure><figure class="history-backdrop"><img src="../assets/history-generated/03-斯坦因来访.png" alt=""></figure><figure class="history-backdrop"><img src="../assets/history-generated/04-伯希和入窟.png" alt=""></figure><figure class="history-backdrop"><img src="../assets/history-generated/05-多国考察.png" alt=""></figure><figure class="history-backdrop"><img src="../assets/history-generated/06-常书鸿保护.png" alt=""></figure><figure class="history-backdrop"><img src="../assets/history-generated/07-数字重联.png" alt=""></figure>
+        </div>
+        <div class="history-scrim"></div>
+        <div class="history-copy-window">
+          <article class="history-copy-item"><span class="year">11 世纪初</span><h1>文物封藏</h1><p>大量佛教经卷、社会文书、绘画、纺织品等放入洞窟，洞口封闭；具体日期与原因仍有争议。</p><a class="detail-link" href="event-11th-century.html">了解更多 →</a></article>
+          <article class="history-copy-item"><span class="year">1900 年</span><h1>王圆箓发现藏经洞</h1><p>清理洞内积尘时发现藏经洞，后向地方官员报告，并卷入文物转移与售出。</p><a class="detail-link" href="event-1900.html">了解更多 →</a></article>
+          <article class="history-copy-item"><span class="year">1907 年</span><h1>斯坦因来到敦煌</h1><p>通过王圆箓与翻译蒋孝琬获得大量文物，主要流入英国和印度的博物馆、图书馆。</p><a class="detail-link" href="event-1907.html">了解更多 →</a></article>
+          <article class="history-copy-item"><span class="year">1908 年</span><h1>伯希和入窟</h1><p>伯希和凭语言能力在烛光下挑选文书，带走数千件，并推动余卷运往北京。</p><a class="detail-link" href="event-1908.html">了解更多 →</a></article>
+          <article class="history-copy-item"><span class="year">1912—1924 年</span><h1>多国考察者相继到来</h1><p>大谷探险队、鄂登堡考察团与华纳等先后到来，记录和带走文书、画作、壁画碎片与雕塑。</p><a class="detail-link" href="event-1912-1924.html">了解更多 →</a></article>
+          <article class="history-copy-item"><span class="year">1944 年</span><h1>常书鸿开启专业保护</h1><p>敦煌艺术研究所成立，开始系统保护、调查、临摹、编号和记录，成为敦煌研究院的前身。</p><a class="detail-link" href="event-1944.html">了解更多 →</a></article>
+          <article class="history-copy-item"><span class="year">20 世纪至今</span><h1>敦煌学与数字重联</h1><p>国际跨学科研究与数字化、摄影、数据库发展，使分散的文物和信息重新建立关联。</p><a class="detail-link" href="event-contemporary.html">了解更多 →</a></article>
+        </div>
+        <nav class="history-progress" aria-label="章节进度"><button class="active" type="button" aria-label="前往第 1 章"></button><button type="button" aria-label="前往第 2 章"></button><button type="button" aria-label="前往第 3 章"></button><button type="button" aria-label="前往第 4 章"></button><button type="button" aria-label="前往第 5 章"></button><button type="button" aria-label="前往第 6 章"></button><button type="button" aria-label="前往第 7 章"></button></nav>
+        <button class="story-continue" type="button" data-story-continue="chapter">继续阅读</button>
+      </div>
+      <div class="history-scroll" aria-hidden="true"><span class="history-snap"></span><span class="history-snap"></span><span class="history-snap"></span><span class="history-snap"></span><span class="history-snap"></span><span class="history-snap"></span><span class="history-snap"></span></div>
+    </section>
+    <section class="story-ending" aria-labelledby="story-ending-title">
+      <img class="ending-fragment ending-fragment-one" src="../assets/about-fragments/dy054-2.png" alt="" aria-hidden="true">
+      <img class="ending-fragment ending-fragment-two" src="../assets/about-fragments/dy019.png" alt="" aria-hidden="true">
+      <img class="ending-fragment ending-fragment-three" src="../assets/about-fragments/dy042.png" alt="" aria-hidden="true">
+      <div class="ending-intro"><div class="eyebrow">下一段阅读</div><h2 id="story-ending-title">继续探索</h2><p>历史并未停在文物的流散处。回到残片、文献与人的判断，让一段段被切断的联系重新可见。</p></div>
+      <div class="ending-grid">
+        <a class="ending-card" href="../rejoin.html"><img src="../assets/cases/sciencedb_real_rejoin_group.png" alt="两片敦煌残卷的缀合参考"><h3>智能缀合</h3><p>从边缘形态与文献内容中寻找残卷之间的连接。</p><span>进入缀合 →</span></a>
+        <a class="ending-card" href="../restoration.html"><img src="../assets/replay/result.png" alt="残缺经卷的文字复原参考"><h3>文献复原</h3><p>依据佛经原文与上下文重新理解残缺内容。</p><span>进入复原 →</span></a>
+        <a class="ending-card" href="../about.html"><img src="../assets/generated/v3/review-workspace-environment.png" alt="敦煌研究与扫描工作环境"><h3>关于我们</h3><p>了解项目理念、工作流程与数据原则。</p><span>了解我们 →</span></a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">图像标注：历史场景示意图 · 仅作预览氛围，不是文物证据。</footer>
+  <script>
+    (() => {
+      const story = document.querySelector('.history-story');
+      const reading = document.querySelector('.history-reading');
+      const stage = document.querySelector('.history-stage');
+      const ending = document.querySelector('.story-ending');
+      const header = document.querySelector('.site-header');
+      const copies = [...document.querySelectorAll('.history-copy-item')];
+      const backdrops = [...document.querySelectorAll('.history-backdrop')];
+      const progressButtons = [...document.querySelectorAll('.history-progress button')];
+      const continueButtons = [...document.querySelectorAll('[data-story-continue]')];
+      const chapterKeys = ['event-seal', 'event-1900', 'event-1907', 'event-pelliot', 'event-dispersal', 'event-protection', 'event-contemporary'];
+      const endingCards = [...document.querySelectorAll('.ending-card')];
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const chapterCount = copies.length;
+      let scheduled = false;
+
+      function setStageHeight() { story.style.setProperty('--history-header', `${header.offsetHeight}px`); }
+      function readingStart() { return reading.offsetTop - header.offsetHeight; }
+      function transitionState() {
+        const range = Math.max(1, reading.offsetHeight - stage.offsetHeight);
+        const rawPosition = Math.min(chapterCount - 1, Math.max(0, ((window.scrollY - readingStart()) / range) * (chapterCount - 1)));
+        return { chapter: Math.floor(rawPosition), progress: rawPosition % 1 };
+      }
+      function smoothProgress(value, start, end) {
+        const progress = Math.min(1, Math.max(0, (value - start) / (end - start)));
+        return progress * progress * (3 - 2 * progress);
+      }
+      function render() {
+        scheduled = false;
+        const state = transitionState();
+        const isLastChapter = state.chapter >= chapterCount - 1;
+        // 每一小段真实滚动都会带动文字位移；中间仅保留短暂的纯图片区，而不再停住当前章节。
+        const exitProgress = smoothProgress(state.progress, 0, .52);
+        const enterProgress = smoothProgress(state.progress, .64, 1);
+        const backgroundProgress = smoothProgress(state.progress, .42, .7);
+        const active = isLastChapter ? chapterCount - 1 : Math.min(chapterCount - 1, state.chapter + (state.progress >= .85 ? 1 : 0));
+        copies.forEach((copy, index) => {
+          let translate = index < state.chapter ? -100 : 100;
+          let opacity = 0;
+          if (index === state.chapter) { translate = -100 * exitProgress; opacity = 1 - exitProgress; }
+          if (!isLastChapter && index === state.chapter + 1) { translate = 100 * (1 - enterProgress); opacity = enterProgress; }
+          copy.style.transform = `translate3d(0, ${translate}%, 0)`;
+          copy.style.opacity = `${opacity}`;
+          copy.style.pointerEvents = opacity > .14 ? 'auto' : 'none';
+          copy.style.visibility = opacity > .01 ? 'visible' : 'hidden';
+          copy.style.setProperty('--chapter-title-opacity', `${opacity}`);
+          copy.style.setProperty('--chapter-title-offset', `${(1 - opacity) * 12}px`);
+          copy.style.setProperty('--chapter-detail-opacity', `${opacity}`);
+          copy.style.setProperty('--chapter-detail-offset', `${(1 - opacity) * 20}px`);
+        });
+        backdrops.forEach((backdrop, index) => {
+          const nearby = index === state.chapter || (!isLastChapter && index === state.chapter + 1);
+          let opacity = 0;
+          if (index === state.chapter) opacity = isLastChapter ? 1 : (1 - backgroundProgress) * (.3 + .7 * Math.min(1, state.progress / .25));
+          if (!isLastChapter && index === state.chapter + 1) opacity = backgroundProgress * (.3 + .7 * Math.min(1, Math.max(0, (state.progress - .5) / .2)));
+          backdrop.style.visibility = nearby ? 'visible' : 'hidden';
+          backdrop.style.opacity = `${opacity}`;
+        });
+        progressButtons.forEach((button, index) => button.classList.toggle('active', index === active));
+      }
+      function requestRender() { if (!scheduled) { scheduled = true; window.requestAnimationFrame(render); } }
+      function scrollToChapter(index) {
+        const range = Math.max(1, reading.offsetHeight - stage.offsetHeight);
+        window.scrollTo({ top: readingStart() + range * (index / (chapterCount - 1)), behavior:'smooth' });
+      }
+      function continueStory(event) {
+        if (event.currentTarget.dataset.storyContinue === 'cover') { scrollToChapter(0); return; }
+        const state = transitionState();
+        if (state.chapter >= chapterCount - 1) { window.scrollTo({ top: ending.offsetTop - header.offsetHeight, behavior:'smooth' }); }
+        else { scrollToChapter(state.chapter + 1); }
+      }
+      function restoreInitialChapter() {
+        const params = new URLSearchParams(window.location.search);
+        const stored = sessionStorage.getItem('history-return-chapter');
+        const key = params.get('chapter') || stored;
+        const index = chapterKeys.indexOf(key);
+        if (index < 0) return;
+        const range = Math.max(1, reading.offsetHeight - stage.offsetHeight);
+        window.scrollTo(0, readingStart() + range * (index / (chapterCount - 1)));
+        sessionStorage.removeItem('history-return-chapter');
+      }
+      setStageHeight(); restoreInitialChapter(); render();
+      window.addEventListener('scroll', requestRender, { passive:true });
+      window.addEventListener('resize', () => { setStageHeight(); requestRender(); });
+      progressButtons.forEach((button, index) => button.addEventListener('click', () => scrollToChapter(index)));
+      continueButtons.forEach(button => button.addEventListener('click', continueStory));
+      copies.forEach((copy, index) => {
+        const link = copy.querySelector('.detail-link');
+        const url = new URL(link.href, window.location.href);
+        url.searchParams.set('chapter', chapterKeys[index]);
+        link.href = url.href;
+        link.addEventListener('click', () => {
+          sessionStorage.setItem('history-return-chapter', chapterKeys[index]);
+          sessionStorage.setItem('history-return-scroll', `${window.scrollY}`);
+        });
+      });
+      if (reducedMotion || !('IntersectionObserver' in window)) {
+        endingCards.forEach(card => card.classList.add('is-revealed'));
+      } else {
+        story.classList.add('story-motion-ready');
+        const endingObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.add('is-revealed'); endingObserver.unobserve(entry.target); }
+          });
+        }, { threshold:.14, rootMargin:'0px 0px -6%' });
+        endingCards.forEach(card => endingObserver.observe(card));
+      }
+      requestAnimationFrame(() => {
+        render();
+        document.documentElement.classList.remove('history-restoring');
+      });
+    })();
+  </script>
+</body>
+</html>

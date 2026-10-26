@@ -48,3 +48,15 @@ RUNTIME/logs/
 *.tiff
 *.webp
 *.pdf
+
+# Keep frontend preview assets (images/video/pdf) in FRONTEND/
+!FRONTEND/
+!FRONTEND/**/*.png
+!FRONTEND/**/*.PNG
+!FRONTEND/**/*.jpg
+!FRONTEND/**/*.JPG
+!FRONTEND/**/*.jpeg
+!FRONTEND/**/*.webp
+!FRONTEND/**/*.pdf
+!FRONTEND/**/*.mp4
+!FRONTEND/**/*.webm

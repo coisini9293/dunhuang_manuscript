@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>智能缀合 · 预览</title>
+  <link rel="stylesheet" href="static/preview.css">
+  <link rel="stylesheet" href="static/tool-journey.css">
+  <link rel="stylesheet" href="static/experience.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="scrollweave home"><span class="brand-mark" aria-hidden="true"><img src="assets/brand/scrollweave-mark.png" alt=""></span><span class="brand-title">scrollweave</span></a>
+    <nav class="nav"><a href="index.html">首页</a><a href="history/index.html">藏经洞历史</a><a href="rejoin.html" aria-current="page">缀合</a><a href="restoration.html">复原</a><a href="about.html">关于我们</a><a class="locale" href="#">中文</a></nav>
+  </header>
+  <main class="journey-page journey-page--rejoin">
+    <section class="journey-cover journey-cover--rejoin" aria-labelledby="cover-title">
+      <div class="cover-visual" aria-hidden="true">
+        <img class="cover-fragment cover-fragment--a" src="assets/rejoin/fragment_a.png" alt="">
+        <img class="cover-fragment cover-fragment--b" src="assets/rejoin/fragment_b.png" alt="">
+        <span class="cover-connection"></span>
+      </div>
+      <div class="journey-cover__copy">
+        <p class="journey-kicker">残卷关系识别</p>
+        <h1 id="cover-title">智能缀合</h1>
+        <p class="journey-cover__lead">从边缘形态到文献内容，重新寻找残卷之间可以被验证的连接。</p>
+        <p class="journey-cover__detail">优先判断物理边缘，无法直接匹配时，再进入内容分析。</p>
+        <a class="journey-cta" href="#workspace" data-scroll-workspace>进入缀合工作台 <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="journey-method" aria-labelledby="method-title">
+      <div class="journey-method__intro"><p class="eyebrow">工作依据</p><h2 id="method-title">先看形态，<br>再读内容。</h2></div>
+      <div class="journey-method__rail">
+        <article class="journey-method__step"><b>01</b><h3>边缘匹配</h3><p>优先判断撕裂边缘、形态与版式之间是否存在直接契合关系。</p></article>
+        <div class="journey-method__line" aria-hidden="true"></div>
+        <article class="journey-method__step"><b>02</b><h3>内容匹配</h3><p>若边缘无法直接确认，则继续依据文字内容与文献关系寻找连接。</p></article>
+      </div>
+    </section>
+
+    <section id="workspace" class="journey-workspace" aria-labelledby="workspace-title">
+      <div class="journey-workspace__head"><div><p class="eyebrow">缀合工作台</p><h2 id="workspace-title">放入两块残卷，开始观察。</h2></div><p>保留原有的双残卷上传与缀合操作。上传后可分别观察两块残卷，再进行缀合分析。</p></div>
+      <div class="journey-workspace__frame">
+        <section class="rejoin-workbench" aria-label="残卷缀合工作台">
+          <img class="rejoin-workbench-bg" src="assets/generated/rejoin-workbench-empty.png" alt="空白残卷缀合工作台">
+          <label class="fragment-dropzone fragment-dropzone-a" data-fragment="a" aria-label="上传残卷 A"><input type="file" accept="image/*"><img class="fragment-preview" alt="残卷 A 预览"><span class="dropzone-copy"><svg class="upload-image-icon" aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 31V10"></path><path d="m15 19 9-9 9 9"></path><path d="M10 30v5a6 6 0 0 0 6 6h16a6 6 0 0 0 6-6v-5"></path></svg><strong>残卷 A</strong><span data-dropzone-hint>点击或拖拽上传</span></span><button type="button" class="upload-cancel" data-upload-cancel aria-label="取消上传残卷 A">取消上传</button></label>
+          <label class="fragment-dropzone fragment-dropzone-b" data-fragment="b" aria-label="上传残卷 B"><input type="file" accept="image/*"><img class="fragment-preview" alt="残卷 B 预览"><span class="dropzone-copy"><svg class="upload-image-icon" aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 31V10"></path><path d="m15 19 9-9 9 9"></path><path d="M10 30v5a6 6 0 0 0 6 6h16a6 6 0 0 0 6-6v-5"></path></svg><strong>残卷 B</strong><span data-dropzone-hint>点击或拖拽上传</span></span><button type="button" class="upload-cancel" data-upload-cancel aria-label="取消上传残卷 B">取消上传</button></label>
+          <button type="button" class="workbench-start-button" aria-label="上传残卷后开始" disabled>上传残卷后开始</button>
+        </section>
+      </div>
+    </section>
+
+    <section class="experience-section rejoin-result experience-reveal" id="rejoin-inspector" aria-labelledby="rejoin-inspector-title">
+      <div class="experience-heading">
+        <div><p class="experience-kicker">LOCAL REJOIN · VERIFIED REPLAY</p><h2 id="rejoin-inspector-title">真实像素缀合检视</h2></div>
+        <p>将正式前端的缀合回放与分析报告合并在同一张检视案台中。可以切换观察方式，但保存回放不代表本轮重新计算。</p>
+      </div>
+
+      <div class="rejoin-console" data-rejoin-console>
+        <header class="rejoin-console__head">
+          <div class="console-status"><i aria-hidden="true"></i><span data-rejoin-status>保存案例回放</span><small>EDH-DX01962-02052 · 本地像素资料</small></div>
+          <dl class="console-metrics">
+            <div><dt>判定</dt><dd>同源匹配</dd></div>
+            <div><dt>置信度</dt><dd>99.9902%</dd></div>
+            <div><dt>旋转</dt><dd>0.117°</dd></div>
+            <div><dt>全景尺寸</dt><dd>1062 × 1134</dd></div>
+          </dl>
+        </header>
+
+        <div class="console-tabs" role="tablist" aria-label="缀合查看方式">
+          <button type="button" class="is-active" role="tab" aria-selected="true" data-rejoin-view="side">并排观察</button>
+          <button type="button" role="tab" aria-selected="false" data-rejoin-view="overlay">透光叠层</button>
+          <button type="button" role="tab" aria-selected="false" data-rejoin-view="wipe">滑动比对</button>
+          <button type="button" role="tab" aria-selected="false" data-rejoin-view="edge">断边校准</button>
+          <button type="button" role="tab" aria-selected="false" data-rejoin-view="panorama">全景参考</button>
+        </div>
+
+        <div class="rejoin-inspection-stage" data-rejoin-stage data-view="side">
+          <div class="stage-grid" aria-hidden="true"></div>
+          <img class="inspection-fragment inspection-fragment--a" src="assets/rejoin/fragment_a.png" alt="真实缀合回放残卷 A">
+          <img class="inspection-fragment inspection-fragment--b" src="assets/rejoin/fragment_b.png" alt="真实缀合回放残卷 B">
+          <img class="inspection-panorama" src="assets/rejoin/panorama_reference.png" alt="保存的同源完整图像参考">
+          <div class="edge-calibration" aria-hidden="true"><i></i><i></i><i></i><span>断边连续性追踪</span></div>
+          <div class="scan-trace" aria-hidden="true"></div>
+          <input class="rejoin-wipe" data-rejoin-wipe type="range" min="15" max="85" value="50" aria-label="调整缀合滑动对比位置">
+        </div>
+
+        <footer class="rejoin-console__foot">
+          <div><strong>观察提示</strong><span data-rejoin-hint>先比较形制、栏线与断边，再判断内容关联。</span></div>
+          <div class="console-actions"><button type="button" data-rejoin-scan>重播断边追踪</button><button type="button" class="is-primary" data-report-toggle aria-expanded="false" aria-controls="rejoin-report">展开分析报告</button></div>
+        </footer>
+
+        <div class="rejoin-report" id="rejoin-report" hidden>
+          <div class="report-verdict"><span>分析结论</span><strong>两片残卷具备高可信同源关系</strong><p>边缘形态和旋转校准形成稳定对应；文本内容只能作为辅助证据，不代替物理断边判断。</p></div>
+          <div class="report-confidence" aria-label="缀合置信度 99.9902%"><div><strong>99.9902</strong><span>%</span></div><small>匹配置信度</small></div>
+          <div class="report-ledger">
+            <div><span>水平偏移</span><strong>+447 px</strong><small>保存接口指标</small></div>
+            <div><span>垂直偏移</span><strong>−12 px</strong><small>保存接口指标</small></div>
+            <div><span>观察边界</span><strong>未进入修复</strong><small>缀合判定与复原分离</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="static/tool-journey.js"></script>
+  <script>
+  (() => {
+    const zones = [...document.querySelectorAll('[data-fragment]')];
+    const start = document.querySelector('.rejoin-workbench .workbench-start-button');
+    const files = new Map();
+    const apiBase = window.DUNHUANG_API_BASE || '';
+    const setStart = () => { if (!start) return; const ready = zones.every((zone) => zone.classList.contains('has-file')); start.disabled = !ready; start.textContent = ready ? '开始缀合分析' : '上传残卷后开始'; start.setAttribute('aria-label', start.textContent); };
+    const setFile = (zone, file) => {
+      if (!file || !file.type.startsWith('image/')) return;
+      const preview = zone.querySelector('.fragment-preview'); const hint = zone.querySelector('[data-dropzone-hint]');
+      if (preview.dataset.objectUrl) URL.revokeObjectURL(preview.dataset.objectUrl);
+      preview.dataset.objectUrl = URL.createObjectURL(file); preview.src = preview.dataset.objectUrl;
+      preview.alt = `${zone.dataset.fragment === 'a' ? '残卷 A' : '残卷 B'} · ${file.name}`;
+      files.set(zone.dataset.fragment, file);
+      zone.classList.add('has-file'); if (hint) hint.textContent = '更换图片'; setStart();
+    };
+    zones.forEach((zone) => {
+      const input = zone.querySelector('input[type=file]');
+      input.addEventListener('change', () => setFile(zone, input.files?.[0]));
+      zone.addEventListener('dragover', (event) => { event.preventDefault(); zone.classList.add('is-dragover'); const hint = zone.querySelector('[data-dropzone-hint]'); if (hint && !zone.classList.contains('has-file')) hint.textContent = `松开以上传残卷 ${zone.dataset.fragment.toUpperCase()}`; });
+      zone.addEventListener('dragleave', (event) => { if (event.relatedTarget && zone.contains(event.relatedTarget)) return; zone.classList.remove('is-dragover'); const hint = zone.querySelector('[data-dropzone-hint]'); if (hint && !zone.classList.contains('has-file')) hint.textContent = '点击或拖拽上传'; });
+      zone.addEventListener('drop', (event) => { event.preventDefault(); zone.classList.remove('is-dragover'); setFile(zone, event.dataTransfer?.files?.[0]); });
+      zone.querySelector('[data-upload-cancel]')?.addEventListener('click', (event) => {
+        event.preventDefault(); event.stopPropagation();
+        const preview = zone.querySelector('.fragment-preview'); const hint = zone.querySelector('[data-dropzone-hint]');
+        if (preview?.dataset.objectUrl) { URL.revokeObjectURL(preview.dataset.objectUrl); delete preview.dataset.objectUrl; }
+        if (preview) { preview.removeAttribute('src'); preview.alt = `${zone.dataset.fragment === 'a' ? '残卷 A' : '残卷 B'} 预览`; }
+        input.value = ''; files.delete(zone.dataset.fragment); zone.classList.remove('has-file', 'is-dragover'); if (hint) hint.textContent = '点击或拖拽上传'; setStart();
+      });
+    });
+    setStart();
+    const setConsole = (text) => { const node = document.querySelector('[data-rejoin-status]'); if (node) node.textContent = text; };
+    const wait = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
+    start?.addEventListener('click', async () => {
+      if (start.disabled || start.dataset.running === 'true') return;
+      const fragmentA = files.get('a'); const fragmentB = files.get('b');
+      if (!fragmentA || !fragmentB) return;
+      start.dataset.running = 'true'; start.disabled = true; start.classList.add('is-started'); start.textContent = '提交真实缀合任务';
+      try {
+        const form = new FormData(); form.append('fragment_a', fragmentA); form.append('fragment_b', fragmentB);
+        const response = await fetch(`${apiBase}/api/rejoin`, { method: 'POST', body: form, headers: { 'X-Client-Version': 'preview-sandbox' } });
+        if (!response.ok) throw new Error(await response.text());
+        const job = await response.json(); window.sessionStorage.setItem('dunhuangRejoinJob', JSON.stringify(job));
+        for (;;) {
+          const statusResponse = await fetch(`${apiBase}/api/rejoin/${job.job_id}`);
+          if (!statusResponse.ok) throw new Error(await statusResponse.text());
+          const status = await statusResponse.json(); setConsole(`${status.phase || status.status} · ${status.progress ?? 0}%`); start.textContent = `真实缀合中 ${status.progress ?? 0}%`;
+          if (status.status === 'FAILED') throw new Error(status.error_detail || status.error_code || '真缀合失败');
+          if (status.status === 'COMPLETE') {
+            const resultUrl = `${apiBase}/api/rejoin/${job.job_id}/result`;
+            const panorama = document.querySelector('.inspection-panorama'); if (panorama) { panorama.src = resultUrl; panorama.alt = '本次真实缀合结果'; }
+            const hint = document.querySelector('[data-rejoin-hint]'); if (hint) hint.textContent = `真实结果 SHA256：${status.result?.stitched_sha256 || '已生成'}`;
+            window.sessionStorage.setItem('dunhuangRejoinComplete', JSON.stringify({ jobId: job.job_id, resultUrl, stitchedSha256: status.result?.stitched_sha256 || '' }));
+            setConsole('真实缀合完成'); window.dispatchEvent(new CustomEvent('rejoin-analysis-complete', { detail: status })); window.setTimeout(() => setConsole('真实缀合完成'), 0); break;
+          }
+          await wait(1200);
+        }
+      } catch (error) { setConsole(`真缀合失败：${error.message}`); }
+      finally { start.dataset.running = 'false'; start.disabled = false; start.classList.remove('is-started'); start.textContent = '开始缀合分析'; start.setAttribute('aria-label', '开始缀合分析'); }
+    });
+  })();
+  </script>
+  <script src="static/tool-experience.js"></script>
+</body>
+</html>

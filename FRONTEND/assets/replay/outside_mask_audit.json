@@ -1,0 +1,10 @@
+{
+  "status": "CONSTRAINED_COMPOSITOR_PASS",
+  "outside_mask_changed_pixels": 0,
+  "approved_mask_pixels": 1978,
+  "changed_pixels_inside_mask": 1935,
+  "original_sha256": "b637dd793009f6aadb7b4e02a47d3dbc297fb61bf58d60bcc0ce81ae2979f5f8",
+  "generated_sha256": "3351f957fe25a8a3767d466389c53273aa7c02bf7c592045f60539a80b269e14",
+  "final_sha256": "94ecbb095549b37250ea41d72e322d4fb56031d92587338c228e750a80a762d2",
+  "human_review_status": "not_reviewed"
+}
